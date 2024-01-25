@@ -44,7 +44,6 @@ class Home extends Component {
     projectLink: "",
     description: "",
     projectList: [...projects],
-    addBtnClick: false,
   };
 
   onSubmitProject = (event) => {
@@ -130,7 +129,7 @@ class Home extends Component {
   };
 
   render() {
-    const { projectList, addBtnClick } = this.state;
+    const { projectList } = this.state;
 
     return (
       <div className="home-container">
@@ -174,17 +173,11 @@ class Home extends Component {
             </button>
           </form>
         </div>
+
         {/* projects */}
-        {addBtnClick ? (
-          <ul>
-            <h1 className="projects-heading">Projects</h1>
-            {projectList.map((each) => (
-              <Projects projectList={each} />
-            ))}
-          </ul>
-        ) : (
-          ""
-        )}
+
+        <Projects projectList={projectList} />
+
         {/* footer */}
         <div className="footer-container">
           <FaInstagramSquare className="icon-size" />
